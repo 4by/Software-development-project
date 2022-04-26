@@ -3,7 +3,7 @@ import { forCursField } from '../../../elems/test_helpers/propsForTesting'
 
 export default ({ code, currArea, setCurs, setText, getAreas, getCurses, index }) => {
 
-    const valueForConvert = currArea.text
+    const valueForConvert = (inputFilter(currArea.text) == 'valid')
         ? currArea
         : getAreas
             .filter(e => e.text)
