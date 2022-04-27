@@ -1,7 +1,7 @@
 import React from 'react';
 import Decimal from 'decimal.js';
 
-
+//общие ф-и
 const inputFilter = input => {
 
   const altGroup = '-?\\d+[.]?';
@@ -21,7 +21,6 @@ const inputFilter = input => {
     : "notValid"
 
 };
-
 const converte = ({ value, fromCurs, toCurs }) =>
   value
     ? +(new Decimal(fromCurs)
@@ -32,7 +31,7 @@ const converte = ({ value, fromCurs, toCurs }) =>
 
 
 
-
+//ф-и для листбокса
 const valueForConvert = ({ index, getAreas }) =>
   (inputFilter(getAreas[index].text) == 'valid')
     ? getAreas[index]
@@ -40,7 +39,6 @@ const valueForConvert = ({ index, getAreas }) =>
       .filter(e => e.text)
       .find(e => inputFilter(e.text) == 'valid')
     ?? null
-
 
 export const selectAreaCurs = ({ setCurs, setText, code, index, getCurses, getAreas }) => {
   setCurs({ code, index })
@@ -53,7 +51,7 @@ export const selectAreaCurs = ({ setCurs, setText, code, index, getCurses, getAr
 
 
 
-
+//ф-и для полей
 const converteActiveAreas = ({ value, index, getAreas, getCurses }) =>
   getAreas.map(e => e.curs
     ? converte({
@@ -63,7 +61,6 @@ const converteActiveAreas = ({ value, index, getAreas, getCurses }) =>
     })
     : undefined
   )
-
 
 const distrText = ({ value, index, getAreas, getCurses }) => {
   const input = inputFilter(value)
