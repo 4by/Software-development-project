@@ -1,30 +1,15 @@
-import { converte, inputFilter } from '../../../elems'
+import { selectAreaCurs } from '../../../elems'
 import { forCursField } from '../../../elems/test_helpers/propsForTesting'
 
-export default ({ code, currArea, setCurs, setText, getAreas, getCurses, index }) => {
+export default ({ code, getCurses, index, getAreas, ...props }) => {
 
-    const valueForConvert = (inputFilter(currArea.text) == 'valid')
-        ? currArea
-        : getAreas
-            .filter(e => e.text)
-            .find(e => inputFilter(e.text) == 'valid')
-        ?? null
 
 
 
     return <li
         {...forCursField(index)}
-        aria-selected={code == currArea.curs ? true : false}
-        onClick={() => {
-
-            setCurs({ code, index })
-
-            if (valueForConvert) {
-                code = converte({ value: valueForConvert.text, fromCurs: getCurses[valueForConvert.curs], toCurs: getCurses[code] });
-                setText({ code, index })
-            }
-
-        }}
+        aria-selected={code == getAreas[index].curs ? true : false}
+        onClick={() => { selectAreaCurs({ code, getCurses, index, getAreas, ...props }) }}
     >
         {code}:{getCurses[code]}
     </li>

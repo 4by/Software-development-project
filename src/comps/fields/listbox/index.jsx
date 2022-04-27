@@ -28,17 +28,15 @@ z-index: 2;
 }
 `;
 
-export default ({ getAreas, getCurses, index, visibObj, ...props }) => {
-
-    const currArea = getAreas[index]
+export default ({ getAreas, index, visibObj, ...props }) => {
 
     return <Listbox
         {...forListBox}
         sx={{ height: 80, overflow: 'auto' }}
-        className={currArea.listVisible ? '' : 'hidden'}
+        className={getAreas[index].listVisible ? '' : 'hidden'}
         {...visibObj}
     >
-        <CursesArr {...{ getAreas, getCurses, index, currArea, ...props }} />
+        <CursesArr {...{ getAreas, index, ...props }} />
 
     </Listbox>
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import Decimal from 'decimal.js';
 
-export const inputFilter = input => {
+
+const inputFilter = input => {
 
   const altGroup = '-?\\d+[.]?';
   const start1 = '-?0[.]';
@@ -21,7 +22,7 @@ export const inputFilter = input => {
 
 };
 
-export const converte = ({ value, fromCurs, toCurs }) =>
+const converte = ({ value, fromCurs, toCurs }) =>
   value
     ? +(new Decimal(fromCurs)
       .mul(value)
@@ -30,7 +31,30 @@ export const converte = ({ value, fromCurs, toCurs }) =>
     : ''
 
 
-export const converteActiveAreas = ({ value, index, getAreas, getCurses }) =>
+
+
+const valueForConvert = ({ index, getAreas }) =>
+  (inputFilter(getAreas[index].text) == 'valid')
+    ? getAreas[index]
+    : getAreas
+      .filter(e => e.text)
+      .find(e => inputFilter(e.text) == 'valid')
+    ?? null
+
+
+export const selectAreaCurs = ({ setCurs, setText, code, index, getCurses, getAreas }) => {
+  setCurs({ code, index })
+  const convertValue = valueForConvert({ index, getAreas })
+  if (convertValue) {
+    code = converte({ value: convertValue.text, fromCurs: getCurses[convertValue.curs], toCurs: getCurses[code] });
+    setText({ code, index })
+  }
+}
+
+
+
+
+const converteActiveAreas = ({ value, index, getAreas, getCurses }) =>
   getAreas.map(e => e.curs
     ? converte({
       value,
@@ -41,7 +65,7 @@ export const converteActiveAreas = ({ value, index, getAreas, getCurses }) =>
   )
 
 
-export const distrText = ({ value, index, getAreas, getCurses }) => {
+const distrText = ({ value, index, getAreas, getCurses }) => {
   const input = inputFilter(value)
   return (input == 'notFinished')
     ? [...new Array(index), value]
@@ -54,4 +78,3 @@ export const distrText = ({ value, index, getAreas, getCurses }) => {
 export const setTextToAll = ({ value, index, getAreas, getCurses, setText }) =>
   distrText({ value, index, getAreas, getCurses })
     ?.forEach((code, index) => (code != undefined) ? setText({ code, index }) : undefined)
-
