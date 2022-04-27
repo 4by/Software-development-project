@@ -33,7 +33,7 @@ const converte = ({ value, fromCurs, toCurs }) =>
 
 //ф-и для листбокса
 const valueForConvert = ({ index, getAreas }) =>
-  (inputFilter(getAreas[index].text) == 'valid')
+  inputFilter(getAreas[index].text) == 'valid'
     ? getAreas[index]
     : getAreas
       .filter(e => e.text)
@@ -62,7 +62,7 @@ const converteActiveAreas = ({ value, index, getAreas, getCurses }) =>
     : undefined
   )
 
-const distrText = ({ value, index, getAreas, getCurses }) => {
+const arrOfValuesToChange = ({ value, index, getAreas, getCurses }) => {
   const input = inputFilter(value)
   return (input == 'notFinished')
     ? [...new Array(index), value]
@@ -73,5 +73,5 @@ const distrText = ({ value, index, getAreas, getCurses }) => {
 }
 
 export const setTextToAll = ({ value, index, getAreas, getCurses, setText }) =>
-  distrText({ value, index, getAreas, getCurses })
+  arrOfValuesToChange({ value, index, getAreas, getCurses })
     ?.forEach((code, index) => (code != undefined) ? setText({ code, index }) : undefined)
