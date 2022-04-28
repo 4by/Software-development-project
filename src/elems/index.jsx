@@ -21,12 +21,12 @@ const inputFilter = input => {
     : "notValid"
 
 };
-const converte = ({ value, fromCurs, toCurs }) =>
+const converte = ({ getAccur, value, fromCurs, toCurs }) =>
   value
     ? +(new Decimal(fromCurs)
       .mul(value)
       .div(toCurs)
-      .toFixed(2))
+      .toFixed(getAccur))
     : ''
 
 
@@ -40,11 +40,16 @@ const valueForConvert = ({ index, getAreas }) =>
       .find(e => inputFilter(e.text) == 'valid')
     ?? null
 
-export const selectAreaCurs = ({ setCurs, setText, code, index, getCurses, getAreas }) => {
+export const selectAreaCurs = ({ getAccur, setCurs, setText, code, index, getCurses, getAreas }) => {
   setCurs({ code, index })
   const convertValue = valueForConvert({ index, getAreas })
   if (convertValue) {
-    code = converte({ value: convertValue.text, fromCurs: getCurses[convertValue.curs], toCurs: getCurses[code] });
+    code = converte({
+      getAccur,
+      value: convertValue.text,
+      fromCurs: getCurses[convertValue.curs],
+      toCurs: getCurses[code]
+    });
     setText({ code, index })
   }
 }
@@ -52,9 +57,10 @@ export const selectAreaCurs = ({ setCurs, setText, code, index, getCurses, getAr
 
 
 //ф-и для полей
-const converteActiveAreas = ({ value, index, getAreas, getCurses }) =>
+const converteActiveAreas = ({ getAccur, value, index, getAreas, getCurses }) =>
   getAreas.map(e => e.curs
     ? converte({
+      getAccur,
       value,
       fromCurs: getCurses[getAreas[index].curs],
       toCurs: getCurses[e.curs]
@@ -62,16 +68,16 @@ const converteActiveAreas = ({ value, index, getAreas, getCurses }) =>
     : undefined
   )
 
-const arrOfValuesToChange = ({ value, index, getAreas, getCurses }) => {
+const arrOfValuesToChange = ({ value, index, getAreas, getCurses, getAccur }) => {
   const input = inputFilter(value)
   return (input == 'notFinished')
     ? [...new Array(index), value]
     : (input == 'valid')
-      ? converteActiveAreas({ value, index, getAreas, getCurses })
+      ? converteActiveAreas({ value, index, getAreas, getCurses, getAccur })
       : undefined
 
 }
 
-export const setTextToAll = ({ value, index, getAreas, getCurses, setText }) =>
-  arrOfValuesToChange({ value, index, getAreas, getCurses })
+export const setTextToAll = ({ value, index, getAreas, getCurses, setText, getAccur }) =>
+  arrOfValuesToChange({ value, index, getAreas, getCurses, getAccur })
     ?.forEach((code, index) => (code != undefined) ? setText({ code, index }) : undefined)

@@ -6,27 +6,22 @@ const Input = styled(MuiInput)`
   width: 42px;
 `;
 
-export default function InputSlider({getAccur, setAccur}) {
-    const [value, setValue] = React.useState(2);
-
+export default ({ getAccur, setAccur }) => {
 
     const handleInputChange = (event) => {
-        setValue(event.target.value === '' ? '' : Number(event.target.value));
+        const plusOrMinusOne = event.target.value === '' ? '' : Number(event.target.value)
+        setAccur({ accur: plusOrMinusOne});
     };
 
     const handleBlur = () => {
-        if (value < 2) setValue(2);
-        else if (value > 10) setValue(10);
+        if (getAccur < 2) setAccur({ accur: 2 });
+        else if (getAccur > 10) setAccur({ accur: 10 });
     };
-
-
-    setAccur({accur: 123})
-    console.log(getAccur)
 
 
     return (
         <Input
-            value={value}
+            value={getAccur}
             size="small"
             onChange={handleInputChange}
             onBlur={handleBlur}
