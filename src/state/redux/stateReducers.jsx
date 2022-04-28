@@ -16,7 +16,6 @@ export default (state = initValue, action) => {
   if (action.type === SET_CURS) changeIt({ curs: action.code })
 
   else if (action.type === SET_ACCUR) state.accur = action.accur;
-
   else if (action.type === SET_TEXT) changeIt({ text: action.code })
   else if (action.type === SET_LIST) changeIt({ listVisible: action.isVisible })
   else if (action.type === ADD_AREA)
