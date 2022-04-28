@@ -1,5 +1,6 @@
-import { ADD_AREA, SET_CURS, SET_LIST, REM_AREA, SET_TEXT, GET_API_TO_ASYNC, GET_API_FROM_ASYNC } from './stateConsts';
+import { ADD_AREA, SET_CURS, SET_LIST, REM_AREA, SET_TEXT, GET_API_TO_ASYNC, GET_API_FROM_ASYNC, SET_ACCUR } from './stateConsts';
 
+export const setAccurAction = (number) => ({ type: SET_ACCUR, ...number });
 export const addAreaAction = () => ({ type: ADD_AREA });
 export const setCursAction = (number) => ({ type: SET_CURS, ...number });
 export const setTextAction = (number) => ({ type: SET_TEXT, ...number });

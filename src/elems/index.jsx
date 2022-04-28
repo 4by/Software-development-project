@@ -33,7 +33,7 @@ const converte = ({ value, fromCurs, toCurs }) =>
 
 //ф-и для листбокса
 const valueForConvert = ({ index, getAreas }) =>
-  inputFilter(getAreas[index].text) == 'valid'
+  (inputFilter(getAreas[index].text) == 'valid' && getAreas[index].text)
     ? getAreas[index]
     : getAreas
       .filter(e => e.text)

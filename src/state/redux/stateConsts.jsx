@@ -7,3 +7,4 @@ export const ADD_AREA = 'ADD_AREA';
 export const REM_AREA = 'REM_AREA';
 export const GET_API_TO_ASYNC = 'GET_API_TO_ASYNC';
 export const GET_API_FROM_ASYNC = 'GET_API_FROM_ASYNC';
+export const SET_ACCUR = 'SET_ACCUR';
