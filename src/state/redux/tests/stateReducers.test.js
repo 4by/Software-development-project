@@ -1,4 +1,5 @@
-import reducer, { initValue } from '../stateReducers';
+import reducer from '../stateReducers';
+import { initState }from '../stateConsts' 
 import * as actions from "../stateActons"
 
 
@@ -6,15 +7,15 @@ const addArea = actions.addAreaAction()
 const remArea = (index) => actions.remAreaAction({ index })
 const setText = (code, index) => actions.setTextAction({ code, index })
 const setCurs = (code, index) => actions.setCursAction({ code, index })
-const setList = (isVisible, index) => actions.setListAction({ isVisible, index })
+const setListVisib = (code, index) => actions.setListVisibAction({ code, index })
 const getAPI = (cursesAPI) => actions.getAPIfromAsyncAction({ cursesAPI })
 
 describe('add area', () => {
 
-    let state = { ...initValue }
+    let state = { ...initState }
 
     beforeAll(() => {
-        state = { ...initValue }
+        state = { ...initState }
         reducer(state, addArea)
         reducer(state, addArea)
     })
@@ -32,7 +33,7 @@ describe('add area', () => {
 
 describe('rem areas', () => {
 
-    let state = { ...initValue }
+    let state = { ...initState }
     let index = 0
 
     beforeAll(() => {
@@ -47,14 +48,14 @@ describe('rem areas', () => {
 
     test('remove second', () => {
         reducer(state, remArea(index))
-        expect(state).toEqual(initValue)
+        expect(state).toEqual(initState)
     })
 
 })
 
 describe('set text', () => {
 
-    let state = { ...initValue }
+    let state = { ...initState }
     let codeText = "example"
     let codeUndef = undefined
     let index = 0
@@ -74,7 +75,7 @@ describe('set text', () => {
 
 describe('set curs', () => {
 
-    let state = { ...initValue }
+    let state = { ...initState }
     let codeText = "example"
     let codeUndef = undefined
     let index = 0
@@ -94,11 +95,11 @@ describe('set curs', () => {
 
 describe('set list', () => {
 
-    let state = { ...initValue }
+    let state = { ...initState }
     let index = 0
 
     test('on', () => {
-        reducer(state, setList(true, index))
+        reducer(state, setListVisib(true, index))
         expect(state.areas[index].listVisible).toBe(true)
     })
 
@@ -109,7 +110,7 @@ describe('set list', () => {
 
 describe('get api', () => {
 
-    let state = { ...initValue }
+    let state = { ...initState }
     const cursesAPI = { RUB: 1, USD: 2, UAH: 3 }
 
     test('on', () => {

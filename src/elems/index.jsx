@@ -2,7 +2,7 @@ import React from 'react';
 import Decimal from 'decimal.js';
 
 //общие ф-и
-const inputFilter = input => {
+export const inputFilter = input => {
 
   const altGroup = '-?\\d+[.]?';
   const start1 = '-?0[.]';
@@ -21,7 +21,7 @@ const inputFilter = input => {
     : "notValid"
 
 };
-const converte = ({ value, fromCurs, toCurs }) =>
+export const converte = ({ value, fromCurs, toCurs }) =>
   value
     ? +new Decimal(fromCurs)
       .mul(value)
@@ -55,7 +55,7 @@ export const selectAreaCurs = ({ setCurs, setText, code, index, getCurses, getAr
 
 
 //ф-и для полей
-const converteActiveAreas = ({ getAccur, value, index, getAreas, getCurses }) =>
+export const converteActiveAreas = ({ getAccur, value, index, getAreas, getCurses }) =>
   getAreas.map(e =>
     (e.curs)
       ? converte({
@@ -67,7 +67,7 @@ const converteActiveAreas = ({ getAccur, value, index, getAreas, getCurses }) =>
       : undefined
   )
 
-const arrOfValuesToChange = ({ value, index, getAreas, getCurses, getAccur }) => {
+export const arrOfValuesToChange = ({ value, index, getAreas, getCurses, getAccur }) => {
   const input = inputFilter(value)
 
   return (input == 'notFinished')

@@ -1,4 +1,4 @@
-import { inputFilter, converte, converteActiveAreas, distrText } from './';
+import { inputFilter, converte, converteActiveAreas, arrOfValuesToChange } from './';
 
 const getCurses = { RUB: 1, USD: 2, UAH: 3 }
 const getAreas = [
@@ -69,11 +69,11 @@ describe('distribution func', () => {
     const incorArg = { value: "ef.", index: 1, getCurses, getAreas }
 
     test('unfinished arg', () => {
-        expect(distrText(unfArg)).toEqual([...new Array(unfArg.index), unfArg.value])
+        expect(arrOfValuesToChange(unfArg)).toEqual([...new Array(unfArg.index), unfArg.value])
     })
 
     test('incorrect arg', () => {
-        expect(distrText(incorArg)).toEqual(undefined)
+        expect(arrOfValuesToChange(incorArg)).toEqual(undefined)
     })
 
 
