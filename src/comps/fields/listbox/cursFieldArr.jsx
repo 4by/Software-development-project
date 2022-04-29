@@ -1,6 +1,6 @@
 import CursField from './cursField'
 
-export default ({ getCurses, currArea, getAreas, index, ...props }) => {
+export default ({ getCurses, getAreas, index, ...props }) => {
 
     const getFreeCurses = Object.keys(getCurses)
         .filter(curs => getAreas
@@ -9,6 +9,6 @@ export default ({ getCurses, currArea, getAreas, index, ...props }) => {
 
     return getFreeCurses
         .map(code =>
-            <CursField key={code} {...{ code, getAreas, getCurses, index, currArea, ...props }} />
+            <CursField key={code} {...{ code, getAreas, getCurses, index, ...props }} />
         )
 }

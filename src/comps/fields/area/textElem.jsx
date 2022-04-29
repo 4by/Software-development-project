@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { setTextToAll } from '../../../elems'
 import { forTextElem } from '../../../elems/test_helpers/propsForTesting';
 
-export default ({ getAreas, index, getAccur, getAccurAreas, ...props }) => {
+export default ({ getAreas, index, getAccur, ...props }) => {
 
 
     const currCurs = getAreas[index].curs

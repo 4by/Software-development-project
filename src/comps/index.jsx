@@ -6,15 +6,15 @@ import { sharedProps, sharedMethods } from '../state/redux/stateBinder';
 import FieldsArray from './fields'
 import Accuracy from './accuracy'
 
-const View = ({ setText, getAreas, getAccur, setAccur, addArea, getAPItoAsync, ...props }) => {
+const View = ({ getAccur, setAccur, addArea, getAPItoAsync, ...props }) => {
 
   useEffect(() => { getAPItoAsync() }, []);
 
   return (
     <>
-      <Accuracy {...{ setText, getAreas, getAccur, setAccur }} />
+      <Accuracy {...{ getAccur, setAccur }} />
       <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }} >
-        <FieldsArray {...{ setText, getAreas, getAccur, ...props }} />
+        <FieldsArray {...{ getAccur, ...props }} />
         <AddCircle onClick={() => addArea()} />
       </Box>
 

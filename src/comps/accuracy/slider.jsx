@@ -2,27 +2,13 @@ import * as React from 'react';
 import Slider from '@mui/material/Slider';
 
 
-export default ({ setText, getAreas, getAccur, setAccur }) => {
+export default ({ getAccur, setAccur }) => {
 
 
 
-    const handleInputChange = (event) => {
-        let newAccur = Number(event.target.value)
-        setAccur({ accur: newAccur });
+    const handleInputChange = (event) =>
+        setAccur({ accur: Number(event.target.value) });
 
-
-
-        // const qq = [...getAreas]
-        // qq.map((e, i, arr) => {
-        //     const newText = Number(e.text).toFixed(1)
-        //     arr[i] = { ...e, text: newText }
-        // })
-        // console.log(qq)
-
-
-
-
-    }
 
 
 

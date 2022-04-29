@@ -4,6 +4,6 @@ import IconsElem from './iconsElem';
 
 export default ({ getAreas, getAccurAreas, index, remArea, getCurses, setText, visibObj, getAccur }) =>
     <Box sx={{ display: 'flex' }}>
-        <TextElem {...{ getAccur, getAccurAreas, setText, index, getAreas, getCurses }} />
+        <TextElem {...{ getAccur, setText, index, getAreas, getCurses }} />
         <IconsElem {...{ remArea, index, visibObj }} />
     </Box>
