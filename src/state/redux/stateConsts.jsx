@@ -8,3 +8,4 @@ export const REM_AREA = 'REM_AREA';
 export const GET_API_TO_ASYNC = 'GET_API_TO_ASYNC';
 export const GET_API_FROM_ASYNC = 'GET_API_FROM_ASYNC';
 export const SET_ACCUR = 'SET_ACCUR';
+export const initState = { curses: { RUB: 1 }, areas: [NEW_AREA], accur: 2 };

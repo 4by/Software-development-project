@@ -1,9 +1,7 @@
-import { NEW_AREA, ADD_AREA, SET_CURS, SET_LIST, REM_AREA, SET_TEXT, GET_API_FROM_ASYNC, SET_ACCUR } from './stateConsts';
+import {initState, NEW_AREA, ADD_AREA, SET_CURS, SET_LIST, REM_AREA, SET_TEXT, GET_API_FROM_ASYNC, SET_ACCUR } from './stateConsts';
 
-export const initValue = { curses: { RUB: 1 }, areas: [NEW_AREA], accur: 2 };
 
 export default (state = initValue, action) => {
-
 
 
   const changeIt = arg => {

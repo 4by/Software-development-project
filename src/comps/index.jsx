@@ -12,7 +12,7 @@ const View = ({ getAccur, setAccur, addArea, getAPItoAsync, ...props }) => {
 
   return (
     <>
-      <Accuracy {...{ getAccur, setAccur }} />
+      <Accuracy {...{ getAccur, setAccur }}/>
       <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }} >
         <FieldsArray {...{ getAccur, ...props }} />
         <AddCircle onClick={() => addArea()} />
