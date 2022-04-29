@@ -27,7 +27,7 @@ const converte = ({ getAccur, value, fromCurs, toCurs }) =>
       new Decimal(fromCurs)
         .mul(value)
         .div(toCurs)
-        // .toFixed(getAccur)
+      // .toFixed(getAccur)
     )
     : ''
 
@@ -60,18 +60,20 @@ export const selectAreaCurs = ({ getAccur, setCurs, setText, code, index, getCur
 
 //ф-и для полей
 const converteActiveAreas = ({ getAccur, value, index, getAreas, getCurses }) =>
-  getAreas.map(e => e.curs
-    ? converte({
-      getAccur,
-      value,
-      fromCurs: getCurses[getAreas[index].curs],
-      toCurs: getCurses[e.curs]
-    })
-    : undefined
+  getAreas.map(e =>
+    (e.curs)
+      ? converte({
+        getAccur,
+        value,
+        fromCurs: getCurses[getAreas[index].curs],
+        toCurs: getCurses[e.curs]
+      })
+      : undefined
   )
 
 const arrOfValuesToChange = ({ value, index, getAreas, getCurses, getAccur }) => {
   const input = inputFilter(value)
+
   return (input == 'notFinished')
     ? [...new Array(index), value]
     : (input == 'valid')
@@ -82,4 +84,13 @@ const arrOfValuesToChange = ({ value, index, getAreas, getCurses, getAccur }) =>
 
 export const setTextToAll = ({ value, index, getAreas, getCurses, setText, getAccur }) =>
   arrOfValuesToChange({ value, index, getAreas, getCurses, getAccur })
-    ?.forEach((code, index) => (code != undefined) ? setText({ code, index }) : undefined)
+    ?.forEach((code, i) => {
+      console.log(i == index)
+      return (i != index)
+        ? (code != undefined)
+          ? setText({ code: code.toFixed(getAccur), index: i })
+          : undefined
+        : setText({ code, index: i })
+    }
+    )
+

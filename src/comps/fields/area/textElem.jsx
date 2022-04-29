@@ -15,7 +15,7 @@ export default ({ getAreas, index, getAccur,...props }) => {
         label={currCurs ?? 'select a curs'}
         value={currText}
         onChange={
-            e => setTextToAll({ value: e.target.value, index, getAreas, ...props })
+            e => setTextToAll({ value: e.target.value, index, getAreas, getAccur, ...props })
         }
     />
 
