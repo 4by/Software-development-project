@@ -21,13 +21,12 @@ const inputFilter = input => {
     : "notValid"
 
 };
-const converte = ({ getAccur, value, fromCurs, toCurs }) =>
+const converte = ({ value, fromCurs, toCurs }) =>
   value
     ? +(
       new Decimal(fromCurs)
         .mul(value)
         .div(toCurs)
-      // .toFixed(getAccur)
     )
     : ''
 
@@ -47,12 +46,11 @@ export const selectAreaCurs = ({ getAccur, setCurs, setText, code, index, getCur
   const convertValue = valueForConvert({ index, getAreas })
   if (convertValue) {
     code = converte({
-      getAccur,
       value: convertValue.text,
       fromCurs: getCurses[convertValue.curs],
       toCurs: getCurses[code]
     });
-    setText({ code, index })
+    setText({ code: Number(code).toFixed(getAccur), index })
   }
 }
 

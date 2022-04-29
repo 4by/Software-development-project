@@ -9,13 +9,11 @@ export default ({ getAreas, index, getAccur, ...props }) => {
     const currText = getAreas[index].text
     // const currText = Number(getAreas[index].text).toFixed(getAccur)
 
-    // useEffectprops.setText(123, 0)
-    // console.log(props)
 
-    useEffect(() => {
-        console.log(123)
-        setTextToAll({ value: 123, index, getAreas, getAccur, ...props })
-    }, [getAccur]);
+    // useEffect(() => {
+    //     console.log(123)
+    //     props.setText({ code: 123, index: 0 })
+    // }, [getAccur]);
 
 
 

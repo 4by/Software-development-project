@@ -3,9 +3,6 @@ import { forCursField } from '../../../elems/test_helpers/propsForTesting'
 
 export default ({ code, getCurses, index, getAreas, ...props }) => {
 
-
-
-
     return <li
         {...forCursField(index)}
         aria-selected={code == getAreas[index].curs ? true : false}

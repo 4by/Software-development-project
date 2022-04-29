@@ -4,8 +4,8 @@ import Container from '@mui/material/Container';
 
 
 
-export default (props) =>
+export default ({getAccur, setAccur}) =>
     <Container maxWidth="sm" >
-        <Typography> Accuracy </Typography>
-        <SliderComp {...props} />
+        <Typography> Accuracy: {getAccur} </Typography>
+        <SliderComp {...{getAccur, setAccur}} />
     </Container>
