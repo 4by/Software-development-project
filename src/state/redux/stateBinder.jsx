@@ -2,11 +2,9 @@ import { addAreaAction, setCursAction, setAccurAction, setListAction, remAreaAct
 
 export const sharedProps = (state) => (
   {
-    getAccurAreas: [...state.areaState.areas].map((e, i, arr) => {
-      const newText = Number(e.text).toFixed(state.areaState.accur)
-      arr[i] = { ...e, text: newText }
-      return arr
-    }),
+    // getAreas: state.areaState.areas.map(e =>
+    //   e = { ...e, text: +Number(e.text).toFixed(state.areaState.accur) }
+    // ),
     getAreas: state.areaState.areas,
     getCurses: state.areaState.curses,
     getAccur: state.areaState.accur,

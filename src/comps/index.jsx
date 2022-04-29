@@ -10,8 +10,6 @@ const View = ({ setText, getAreas, getAccur, setAccur, addArea, getAPItoAsync, .
 
   useEffect(() => { getAPItoAsync() }, []);
 
-  // console.log(props.getAccurAreas)
-
   return (
     <>
       <Accuracy {...{ setText, getAreas, getAccur, setAccur }} />
