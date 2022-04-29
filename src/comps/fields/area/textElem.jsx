@@ -3,11 +3,16 @@ import TextField from '@mui/material/TextField';
 import { setTextToAll } from '../../../elems'
 import { forTextElem } from '../../../elems/test_helpers/propsForTesting';
 
-export default ({ getAreas, index, getAccur, ...props }) => {
+export default ({ getAreas, index, getAccur, getAccurAreas,...props }) => {
 
+
+    // const currCurs = getAccurAreas[index].curs
+    // const currText = getAccurAreas[index].text
     const currCurs = getAreas[index].curs
     const currText = getAreas[index].text
     // const currText = Number(getAreas[index].text).toFixed(getAccur)
+
+    console.log(getAccurAreas.length)
 
 
     // useEffect(() => {
@@ -15,7 +20,6 @@ export default ({ getAreas, index, getAccur, ...props }) => {
     //     props.setText({ code: 123, index: 0 })
     // }, [getAccur]);
 
-    console.log(getAreas,index)
 
 
     return <TextField
