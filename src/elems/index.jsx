@@ -85,12 +85,12 @@ const arrOfValuesToChange = ({ value, index, getAreas, getCurses, getAccur }) =>
 export const setTextToAll = ({ value, index, getAreas, getCurses, setText, getAccur }) =>
   arrOfValuesToChange({ value, index, getAreas, getCurses, getAccur })
     ?.forEach((code, i) => {
-      console.log(i == index)
-      return (i != index)
-        ? (code != undefined)
-          ? setText({ code: code.toFixed(getAccur), index: i })
-          : undefined
-        : setText({ code, index: i })
+      console.log(getAreas)
+      return (code != undefined)
+        ? (i != index)
+          ? setText({ code: Number(code).toFixed(getAccur), index: i })
+          : setText({ code, index: i })
+        : undefined
     }
     )
 
