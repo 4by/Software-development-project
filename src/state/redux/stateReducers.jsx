@@ -1,7 +1,7 @@
 import {initState, NEW_AREA, ADD_AREA, SET_CURS, SET_LIST, REM_AREA, SET_TEXT, GET_API_FROM_ASYNC, SET_ACCUR } from './stateConsts';
 
 
-export default (state = initValue, action) => {
+export default (state = initState, action) => {
 
 
   const changeIt = arg => {

@@ -23,10 +23,12 @@ const inputFilter = input => {
 };
 const converte = ({ getAccur, value, fromCurs, toCurs }) =>
   value
-    ? +(new Decimal(fromCurs)
-      .mul(value)
-      .div(toCurs)
-      .toFixed(getAccur))
+    ? +(
+      new Decimal(fromCurs)
+        .mul(value)
+        .div(toCurs)
+        // .toFixed(getAccur)
+    )
     : ''
 
 

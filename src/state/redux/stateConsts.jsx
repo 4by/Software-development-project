@@ -1,5 +1,4 @@
 export const API_LINK = 'https://www.cbr-xml-daily.ru/daily_json.js';
-export const NEW_AREA = { curs: undefined, text: '' , listVisible: false};
 export const SET_TEXT = 'SET_TEXT';
 export const SET_CURS = 'SET_CURS';
 export const SET_LIST = 'SET_LIST';
@@ -8,4 +7,5 @@ export const REM_AREA = 'REM_AREA';
 export const GET_API_TO_ASYNC = 'GET_API_TO_ASYNC';
 export const GET_API_FROM_ASYNC = 'GET_API_FROM_ASYNC';
 export const SET_ACCUR = 'SET_ACCUR';
+export const NEW_AREA = { curs: undefined, text: '' , listVisible: false};
 export const initState = { curses: { RUB: 1 }, areas: [NEW_AREA], accur: 2 };
