@@ -7,10 +7,12 @@ export default ({ getAreas, index, getAccur, getAccurAreas, ...props }) => {
 
 
     const currCurs = getAreas[index].curs
-    // const currText = +Number(getAreas[index].text).toFixed(getAccur)
-    const currText = (typeof (getAreas[index].text) == 'number')
-        ? +(getAreas[index].text).toFixed(getAccur)
+    const text = getAreas[index].text
+    const currText = (typeof text == 'number')
+        ? +text.toFixed(getAccur)
         : getAreas[index].text
+
+
 
     return <TextField
         {...forTextElem}

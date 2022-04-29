@@ -23,11 +23,9 @@ const inputFilter = input => {
 };
 const converte = ({ value, fromCurs, toCurs }) =>
   value
-    ? +(
-      new Decimal(fromCurs)
-        .mul(value)
-        .div(toCurs)
-    )
+    ? +new Decimal(fromCurs)
+      .mul(value)
+      .div(toCurs)
     : ''
 
 
@@ -41,7 +39,7 @@ const valueForConvert = ({ index, getAreas }) =>
       .find(e => inputFilter(e.text) == 'valid')
     ?? null
 
-export const selectAreaCurs = ({ getAccur, setCurs, setText, code, index, getCurses, getAreas }) => {
+export const selectAreaCurs = ({ setCurs, setText, code, index, getCurses, getAreas }) => {
   setCurs({ code, index })
   const convertValue = valueForConvert({ index, getAreas })
   if (convertValue) {
@@ -50,7 +48,7 @@ export const selectAreaCurs = ({ getAccur, setCurs, setText, code, index, getCur
       fromCurs: getCurses[convertValue.curs],
       toCurs: getCurses[code]
     });
-    setText({ code: Number(code).toFixed(getAccur), index })
+    setText({ code, index })
   }
 }
 
