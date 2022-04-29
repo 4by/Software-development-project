@@ -1,12 +1,24 @@
+import React, { useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import { setTextToAll } from '../../../elems'
 import { forTextElem } from '../../../elems/test_helpers/propsForTesting';
 
-export default ({ getAreas, index, getAccur,...props }) => {
+export default ({ getAreas, index, getAccur, ...props }) => {
 
     const currCurs = getAreas[index].curs
     const currText = getAreas[index].text
     // const currText = Number(getAreas[index].text).toFixed(getAccur)
+
+    // useEffectprops.setText(123, 0)
+    // console.log(props)
+
+    useEffect(() => {
+        console.log(123)
+        setTextToAll({ value: 123, index, getAreas, getAccur, ...props })
+    }, [getAccur]);
+
+
+
 
     return <TextField
         {...forTextElem}
