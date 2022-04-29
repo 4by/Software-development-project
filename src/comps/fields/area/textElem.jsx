@@ -15,7 +15,7 @@ export default ({ getAreas, index, getAccur, ...props }) => {
     //     props.setText({ code: 123, index: 0 })
     // }, [getAccur]);
 
-
+    console.log(getAreas,index)
 
 
     return <TextField
