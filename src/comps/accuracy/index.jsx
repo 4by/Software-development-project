@@ -6,6 +6,6 @@ import Container from '@mui/material/Container';
 
 export default ({ getAccur, setAccur }) =>
     <Container maxWidth="sm" >
-        <Typography> Accuracy: {getAccur} </Typography>
+        <Typography> Rounding: {getAccur} </Typography>
         <SliderComp {...{ getAccur, setAccur}} />
     </Container>

@@ -2,10 +2,10 @@ import Box from '@mui/material/Box';
 import Listbox from './listbox'
 import AreaElem from './area'
 
-export default ({ remArea, setCurs, index, setList, ...props }) => {
+export default ({ remArea, setCurs, index, setListVisib, ...props }) => {
 
-  const sv = () => setList({ index, isVisible: true })
-  const sh = () => setList({ index, isVisible: false })
+  const sv = () => setListVisib({ index, code: true })
+  const sh = () => setListVisib({ index, code: false })
 
   const visibObj = {
     onMouseOver: sv,

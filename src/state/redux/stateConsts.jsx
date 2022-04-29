@@ -1,7 +1,7 @@
 export const API_LINK = 'https://www.cbr-xml-daily.ru/daily_json.js';
 export const SET_TEXT = 'SET_TEXT';
 export const SET_CURS = 'SET_CURS';
-export const SET_LIST = 'SET_LIST';
+export const SET_LIST_VISIB = 'SET_LIST_VISIB';
 export const ADD_AREA = 'ADD_AREA';
 export const REM_AREA = 'REM_AREA';
 export const GET_API_TO_ASYNC = 'GET_API_TO_ASYNC';

@@ -1,4 +1,4 @@
-import { addAreaAction, setCursAction, setAccurAction, setListAction, remAreaAction, setTextAction, getAPItoAsyncAction } from './stateActons';
+import { addAreaAction, setCursAction, setAccurAction, setListVisibAction, remAreaAction, setTextAction, getAPItoAsyncAction } from './stateActons';
 
 export const sharedProps = (state) => (
   {
@@ -13,7 +13,7 @@ export const sharedMethods = (dispatch) => (
     setAccur: number => dispatch(setAccurAction(number)),
     setCurs: number => dispatch(setCursAction(number)),
     setText: number => dispatch(setTextAction(number)),
-    setList: number => dispatch(setListAction(number)),
+    setListVisib: number => dispatch(setListVisibAction(number)),
     addArea: number => dispatch(addAreaAction(number)),
     remArea: number => dispatch(remAreaAction(number)),
     getAPItoAsync: () => dispatch(getAPItoAsyncAction()),

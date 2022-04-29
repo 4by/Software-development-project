@@ -7,7 +7,7 @@ export default ({ getAccur, setAccur }) => {
 
 
     const handleInputChange = (event) =>
-        setAccur({ accur: Number(event.target.value) });
+        setAccur({ code: Number(event.target.value) });
 
 
 
