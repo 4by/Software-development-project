@@ -7,11 +7,11 @@ export const inputFilter = input => {
   const start1 = '0?[.]';
   const start2 = '[1-9]\\d*[.]';
   const startGroup = `(${start1}|${start2})`;
-  const end = '(\\d+(e[-]?)?[1-9]?)?';
+  const end = '(\\d+(e[-]?)?[1-9]?)';
 
   const notFinishedQuery_Digit = new RegExp(`([.e-]0*)$`);
   const notFinishedQuery_Zero = new RegExp(`${startGroup}\\d*0$`);
-  const validQuery = new RegExp(`^(${startGroup}?${end})?$`);
+  const validQuery = new RegExp(`^(${startGroup}?${end}?)?$`);
 
   return validQuery.test(input)
     ? notFinishedQuery_Digit.test(input) || notFinishedQuery_Zero.test(input)
