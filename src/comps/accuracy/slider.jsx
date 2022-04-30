@@ -19,7 +19,7 @@ export default ({ getAccur, setAccur }) => {
             onChange={handleInputChange}
             valueLabelDisplay="auto"
             step={1}
-            min={1}
+            min={0}
             max={10}
             marks
         />
