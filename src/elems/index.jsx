@@ -4,8 +4,8 @@ import Decimal from 'decimal.js';
 //общие ф-и
 export const inputFilter = input => {
 
-  const start1 = '-?0?[.]?';
-  const start2 = '-?[1-9]\\d*[.]';
+  const start1 = '0?[.]';
+  const start2 = '[1-9]\\d*[.]';
   const startGroup = `(${start1}|${start2})`;
   const end = '(\\d+(e[-]?)?[1-9]?)?';
 
@@ -13,6 +13,7 @@ export const inputFilter = input => {
   const notFinishedQuery_Zero = new RegExp(`${startGroup}\\d*0$`);
   const validQuery = new RegExp(`^(${startGroup}?${end})?$`);
 
+  console.log(notFinishedQuery_Zero.test(input))
 
   return validQuery.test(input)
     ? notFinishedQuery_Digit.test(input) || notFinishedQuery_Zero.test(input)
